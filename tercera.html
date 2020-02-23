@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Transferencias</title>
+    <title>Eventos</title>
     <link href="custom.css" rel="stylesheet" type="text/css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,31 +22,33 @@
                     <a class="nav-link" href="pagina.html">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="primera.html">Jugadores</a>
+                    <a class="nav-link" href="primera.html">Monedas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="segunda.html">Equipos</a>
+                    <a class="nav-link" href="segunda.html">Mercados</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tercera.html">Transferencias</a>
+                    <a class="nav-link" href="tercera.html">Eventos</a>
                 </li>
 
             </ul>
         </div>
     </nav>
     <div id="app">
-        <h1 class="text-center">Transferencias MLB</h1>
-        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Jugador...'>
+        <h1 class="text-center">Eventos</h1>
+        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Evento...'>
         <br/><br/>
-        <div class="row" id="list-teams" v-if="transFilter && transFilter.length">
+        <div class="row" id="list-events" v-if="eventsFilter && eventsFilter.length">
             <!-- <div class="panel panel-default" v-for="country of countriesFilter"> -->
-            <div class="col-6 col-md-4 col-lg-3" v-for="tran in transFilter">
+            <div class="col-6 col-md-8 col-lg-12" v-for="event in eventsFilter">
                 <div class="card">
                     <div class="card-body">
 
-                        <label>Jugador: </label> {{ tran.player }} </br>
-                        <label>Club Origen: </label> {{ tran.from_team }} </br>
-                        <label>Club Destino: </label> {{ tran.team }} </br>
+                        <label><b>Evento: </b></label> {{ event.title }} </br>
+                        <label><b>Pais: </b></label> {{ event.city }} </br>
+                        <label><b>Ciudad: </b></label> {{ event.country }} </br>
+                        <label><b>Organizador: </b></label> {{ event.organizer }} </br>
+                        <label><b>Descripción: </b> </label> {{ event.description }} </br>
                     </div>
                 </div>
                 <br/><br/>

@@ -3,7 +3,7 @@ new Vue({
     //Definimos los datos para utilizarlos en el html
     data: {
         textSearch: "",
-        teams: []
+        mercados: []
     },
     // Ahora hacemos uso de los hooks, que son los diferentes estados por los que puede pasar un componente
     // podéis leer más en https://elabismodenull.wordpress.com/2017/05/05/vuejs-el-ciclo-de-vida-de-un-componente/
@@ -14,20 +14,15 @@ new Vue({
         //ya que desde RapidAPI nos dan este formato)
         axios({
                 "method": "GET",
-                "url": "https://mlb-data.p.rapidapi.com/json/named.team_all_season.bam",
+                "url": "https://coingecko.p.rapidapi.com/exchanges",
                 "headers": {
                     "content-type": "application/octet-stream",
-                    "x-rapidapi-host": "mlb-data.p.rapidapi.com",
+                    "x-rapidapi-host": "coingecko.p.rapidapi.com",
                     "x-rapidapi-key": "1b88db14c7mshde61de2cc563b21p1062b4jsnfbc5df163f5a"
-                },
-                "params": {
-                    "all_star_sw": "'N'",
-                    "sort_order": "name_asc",
-                    "season": "'2017'"
                 }
             })
             .then((response) => {
-                this.teams = response.data.team_all_season.queryResults.row;
+                this.mercados = response.data;
                 console.log(response)
             })
             .catch((error) => {
@@ -36,10 +31,10 @@ new Vue({
 
     },
     computed: {
-        teamsFilter() {
+        mercadosFilter() {
             var textSearch = this.textSearch;
-            return this.teams.filter(function(el) {
-                return el.name_display_full.toLowerCase().indexOf(textSearch.toLowerCase()) !== -1;
+            return this.mercados.filter(function(el) {
+                return el.name.toLowerCase().indexOf(textSearch.toLowerCase()) !== -1;
             });
         }
     }

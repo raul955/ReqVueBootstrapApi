@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Equipos</title>
+    <title>Mercados</title>
     <link href="custom.css" rel="stylesheet" type="text/css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,13 +22,13 @@
                     <a class="nav-link" href="pagina.html">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="primera.html">Jugadores</a>
+                    <a class="nav-link" href="primera.html">Monedas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="segunda.html">Equipos</a>
+                    <a class="nav-link" href="segunda.html">Mercados</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tercera.html">Transferencias</a>
+                    <a class="nav-link" href="tercera.html">Eventos</a>
                 </li>
 
             </ul>
@@ -39,21 +39,22 @@
 
 
     <div id="app">
-        <h1 class="text-center">Equipos MLB</h1>
-        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Equipo...'>
+        <h1 class="text-center">Mercados Criptomonedas</h1>
+        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Mercado...'>
         <br/><br/>
 
 
-        <div class="row" id="list-teams" v-if="teamsFilter && teamsFilter.length">
+        <div class="row" id="list-mercados" v-if="mercadosFilter && mercadosFilter.length">
             <!-- <div class="panel panel-default" v-for="country of countriesFilter"> -->
-            <div class="col-6 col-md-4 col-lg-3" v-for="team in teamsFilter">
+            <div class="col-6 col-md-4 col-lg-3" v-for="mercado in mercadosFilter">
                 <div class="card">
+                    <div align="center">
+                        <img :src="mercado.image" style="width: 100px; height: auto;">
+                    </div>
                     <div class="card-body">
-
-                        <label>Nombre: </label> {{ team.name_display_full }} </br>
-                        <label>Estadio: </label> {{ team.venue_name }} </br>
-                        <label>Liga: </label> {{ team.league_full }} </br>
-                        <label>Apertura: </label> {{team.home_opener_time }}</br>
+                        <label><b>Nombre: </b></label> {{ mercado.name }} </br>
+                        <label><b>Pais: </b></label> {{ mercado.country }} </br>
+                        <label><b>Enlace: </b></label> {{ mercado.url }} </br>
                     </div>
                 </div>
                 <br/><br/>

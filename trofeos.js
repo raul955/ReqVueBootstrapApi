@@ -3,7 +3,7 @@ new Vue({
     //Definimos los datos para utilizarlos en el html
     data: {
         textSearch: "",
-        trans: []
+        events: []
     },
     // Ahora hacemos uso de los hooks, que son los diferentes estados por los que puede pasar un componente
     // podéis leer más en https://elabismodenull.wordpress.com/2017/05/05/vuejs-el-ciclo-de-vida-de-un-componente/
@@ -14,20 +14,15 @@ new Vue({
         //ya que desde RapidAPI nos dan este formato)
         axios({
                 "method": "GET",
-                "url": "https://mlb-data.p.rapidapi.com/json/named.transaction_all.bam",
+                "url": "https://coingecko.p.rapidapi.com/events",
                 "headers": {
                     "content-type": "application/octet-stream",
-                    "x-rapidapi-host": "mlb-data.p.rapidapi.com",
+                    "x-rapidapi-host": "coingecko.p.rapidapi.com",
                     "x-rapidapi-key": "1b88db14c7mshde61de2cc563b21p1062b4jsnfbc5df163f5a"
-                },
-                "params": {
-                    "end_date": "'20171231'",
-                    "start_date": "'20171201'",
-                    "sport_code": "'mlb'"
                 }
             })
             .then((response) => {
-                this.trans = response.data.transaction_all.queryResults.row;
+                this.events = response.data.data;
                 console.log(response)
             })
             .catch((error) => {
@@ -37,10 +32,10 @@ new Vue({
     },
 
     computed: {
-        transFilter() {
+        eventsFilter() {
             var textSearch = this.textSearch;
-            return this.trans.filter(function(el) {
-                return el.player.toLowerCase().indexOf(textSearch.toLowerCase()) !== -1;
+            return this.events.filter(function(el) {
+                return el.title.toLowerCase().indexOf(textSearch.toLowerCase()) !== -1;
             });
         }
     }

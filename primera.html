@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Ligas</title>
+    <title>Monedas</title>
     <link href="custom.css" rel="stylesheet" type="text/css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,13 +23,13 @@
                     <a class="nav-link" href="pagina.html">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="primera.html">Jugadores</a>
+                    <a class="nav-link" href="primera.html">Monedas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="segunda.html">Equipos</a>
+                    <a class="nav-link" href="segunda.html">Mercados</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tercera.html">Transferencias</a>
+                    <a class="nav-link" href="tercera.html">Eventos</a>
                 </li>
 
             </ul>
@@ -41,21 +41,21 @@
     <br>
 
     <div id="app">
-        <h1 class="text-center">Jugadores MLB</h1>
-        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Jugador...'>
+        <h1 class="text-center">Monedas</h1>
+        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Moneda...'>
         <br/><br/>
 
 
-        <div class="row" id="list-players" v-if="mansFilter && mansFilter.length">
+        <div class="row" id="list-coins" v-if="coinsFilter && coinsFilter.length">
 
-            <div class="col-6 col-md-4 col-lg-3" v-for="man in mansFilter">
+            <div class="col-6 col-md-4 col-lg-3" v-for="coin in coinsFilter">
                 <div class="card">
                     <div class="card-body">
 
-                        <label>Nombre: </label> {{ man.name_display_first_last }} </br>
-                        <label>Dorsal: </label> {{ man.jersey_number }} </br>
-                        <label>Equipo: </label> {{ man.team_name }} </br>
-                        <label>Peso: </label> {{ man.weight }}
+                        <label><b>Nombre: </b></label> {{ coin.name }} </br>
+                        <label><b>Precio: </b></label> {{ coin.current_price }} </br>
+                        <label><b>Máximo 24h: </b></label> {{ coin.high_24h }} </br>
+                        <label><b>Mínimo 24h: </b></label> {{ coin.low_24h }}
 
                     </div>
                 </div>
