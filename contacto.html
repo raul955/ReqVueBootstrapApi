@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Mercados</title>
+    <title>Home</title>
+
     <link href="custom.css" rel="stylesheet" type="text/css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -38,34 +39,33 @@
 
         </div>
     </nav>
-    <br>
+    <br/><br/><br/>
+    <h3 align="Center">Contacto</h3>
+    <br/><br/><br/>
 
-
-    <div id="app">
-        <h1 class="text-center">Mercados Criptomonedas</h1>
-        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Mercado...'>
-        <br/><br/>
-
-
-        <div class="row" id="list-mercados" v-if="mercadosFilter && mercadosFilter.length">
-            <!-- <div class="panel panel-default" v-for="country of countriesFilter"> -->
-            <div class="col-6 col-md-4 col-lg-3" v-for="mercado in mercadosFilter">
-                <div class="card">
-                    <div align="center">
-                        <img :src="mercado.image" style="width: 100px; height: auto;">
-                    </div>
-                    <div class="card-body">
-                        <label><b>Nombre: </b></label> {{ mercado.name }} </br>
-                        <label><b>Pais: </b></label> {{ mercado.country }} </br>
-                        <label><b>Enlace: </b></label> {{ mercado.url }} </br>
-                    </div>
-                </div>
-                <br/><br/>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label>Nombre y apellidos</label>
+                <input type="text" class="form-control" placeholder="Nombre y apellidos...">
             </div>
-        </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="email...">
+            </div>
+            <div class="form-group">
+                <label>Motivo de contacto</label>
+                <input type="text" class="form-control" placeholder="Motivo...">
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea class="form-control" placeholder="Escriba..." rows="4"></textarea>
+            </div>
+            <button type="submit" href="contacto.html" class="btn btn-secondary">Enviar</button>
+        </form>
     </div>
 
-    <br><br><br>
+    <br><br><br><br/>
     <div align="center">
         <a href="https://www.instagram.com" target="_blank"><img src="images/insta.png" class="pollos" /></a>
         <a href="https://www.twitter.com" target="_blank"><img src="images/twitter.png" class="pollos" /></a>
@@ -73,9 +73,10 @@
     </div>
 
     <br><br>
+    <script type="text/javascript" src="javascript.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./equipos.js"></script>
+    <script src="./app.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
